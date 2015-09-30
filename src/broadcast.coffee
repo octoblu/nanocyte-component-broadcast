@@ -2,6 +2,10 @@ ReturnValue = require 'nanocyte-component-return-value'
 
 class Broadcast extends ReturnValue
   onEnvelope: (envelope) =>
-    return envelope.message
+    {
+      devices: ['*']
+      topic:   envelope.config.topic
+      payload: envelope.message
+    }
 
 module.exports = Broadcast
